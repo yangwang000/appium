@@ -1,16 +1,5 @@
-# appium-pageobjectmodel
-Appium mobile test automation framework with Page Object Model design using Java + Maven + TestNG.
-Framework follows many of the industry best practices and supports Android and iOS in a single code base.
-
-**Step by step instructions to build this framework from scratch is in this Highest Rated Udemy course.
-Enroll today at the minimal rate of INR 570/ $12.99.
-Link with coupon code: https://www.udemy.com/course/the-complete-appium-course-for-ios-and-android/?couponCode=MASTERAPPIUM19**
-
-![One of the most comprehensive Appium course ever created](/CourseLandingPage.PNG)
-
 Technologies/Tools used in building the framework
-=================================================
-- Eclipse - IDE
+============================================
 - Appium - Mobile Automation library
 - Maven - Build automation tool
 - Java - Programming language
@@ -43,4 +32,36 @@ Framework implements below best practices
 - Integrated with Log4J2 Logging framework (supports basic as well as parallel logging)
 - Integrated with Extent Reporting framework (supports parallel, screenshots, logging test steps)
 
-#AppiumTutorials #PageObjectModel #TestNG
+
+## Misc
+**Desired Capabilities**: Keys and values encoded in a JSON object, sent by Appium clients to server. Carries information like device info and app info.
+
+**Android how to get appPackage and appActivity:**
+```
+adb shell dumpsys window | grep -E mCurrentFocus
+adb shell "dumpsys activity activities | grep mResumedActivity" (Android 10 or 11)
+download APK info 
+```
+
+**Android launch emulator automatically:**
+```
+desiredCapabilities.setCapability("avd", deviceName);
+desiredCapabilities.setCapability("avdLaunchTimeout", 120000);
+```
+
+**How to check device id of iPhone simulator?**
+```
+1. instruments -s devices
+2. xcrun simctl list
+3. From Xcode: Window -> Devices and Simulators -> Simulators. The Identifier value is the UDID.
+```
+
+## Android Locator Strategies
+|Locator Strategy|Description|Example|Code|
+|----------------|-----------|---------|--------|
+|Accessibility ID|content-desc attribute|<unique_element_name>|driver.findElementByAccessibilityId("<unique_element_name>");|
+|ID|resource-id attribute|<app_package>/<resource-id>|driver.findElementById("<resource-id>");|
+|Class Name|Uiautomator2 class name|android.widget.TextView|driver.findElementByClassName("android.widget.TextView");|
+|XPath|XML path expression|//<UiAutomator2 Class Name>[@<attribute name>="attribute value"]/<axes>::<expression>|driver.findElementByXPath();|
+|Image|matches with base64 encode image file|<base64_encode_string>|driver.findElementByImage("<base64_encode_string>");|
+|UiAutomator2(UiSelector)|UI Automator API, use UiSelector class|"new UiSelector().text(\"Animation\")"|((FindsByAndroidUIAutomator)driver).findElementByAndroidUIAutomator("new UiSelector().text(\"Animation\")");|

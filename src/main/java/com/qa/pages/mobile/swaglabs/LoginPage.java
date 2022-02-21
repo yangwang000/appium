@@ -1,12 +1,12 @@
-package com.qa.pages;
+package com.qa.pages.mobile.swaglabs;
 
-import com.qa.BaseTest;
+import com.qa.MobileBaseTest;
 import com.qa.utils.TestUtils;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-public class LoginPage extends BaseTest {
+public class LoginPage extends MobileBaseTest {
 	TestUtils utils = new TestUtils();
 	@AndroidFindBy (accessibility = "test-Username") 
 	@iOSXCUITFindBy (id = "test-Username")

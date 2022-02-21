@@ -1,8 +1,8 @@
 package com.qa.tests;
 
-import com.qa.BaseTest;
-import com.qa.pages.LoginPage;
-import com.qa.pages.ProductsPage;
+import com.qa.MobileBaseTest;
+import com.qa.pages.mobile.swaglabs.LoginPage;
+import com.qa.pages.mobile.swaglabs.ProductsPage;
 import com.qa.utils.TestUtils;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -12,7 +12,7 @@ import org.testng.annotations.*;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
-public class LoginTests extends BaseTest{
+public class LoginTests extends MobileBaseTest {
 	LoginPage loginPage;
 	ProductsPage productsPage;
 	JSONObject loginUsers;

@@ -1,10 +1,10 @@
 package com.qa.tests;
 
-import com.qa.BaseTest;
-import com.qa.pages.LoginPage;
-import com.qa.pages.ProductDetailsPage;
-import com.qa.pages.ProductsPage;
-import com.qa.pages.SettingsPage;
+import com.qa.MobileBaseTest;
+import com.qa.pages.mobile.swaglabs.LoginPage;
+import com.qa.pages.mobile.swaglabs.ProductDetailsPage;
+import com.qa.pages.mobile.swaglabs.ProductsPage;
+import com.qa.pages.mobile.swaglabs.SettingsPage;
 import com.qa.utils.TestUtils;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -14,7 +14,7 @@ import org.testng.asserts.SoftAssert;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
-public class ProductTests extends BaseTest{
+public class ProductTests extends MobileBaseTest {
 	LoginPage loginPage;
 	ProductsPage productsPage;
 	SettingsPage settingsPage;

@@ -1,6 +1,6 @@
 package com.qa.utils;
 
-import com.qa.BaseTest;
+import com.qa.MobileBaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
@@ -57,7 +57,7 @@ public class TestUtils {
 	}
 	
 	public void log(String txt) {
-		BaseTest base = new BaseTest();
+		MobileBaseTest base = new MobileBaseTest();
 		String msg = Thread.currentThread().getId() + ":" + base.getPlatform() + ":" + base.getDeviceName() + ":"
 				+ Thread.currentThread().getStackTrace()[2].getClassName() + ":" + txt;
 		

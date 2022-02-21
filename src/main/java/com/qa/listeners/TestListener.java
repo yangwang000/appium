@@ -2,7 +2,7 @@ package com.qa.listeners;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
-import com.qa.BaseTest;
+import com.qa.MobileBaseTest;
 import com.qa.reports.ExtentReport;
 import com.qa.utils.TestUtils;
 import org.apache.commons.codec.binary.Base64;
@@ -32,7 +32,7 @@ public class TestListener implements ITestListener {
 			  utils.log().error(sw.toString());
 		}
 		
-		BaseTest base = new BaseTest();
+		MobileBaseTest base = new MobileBaseTest();
 		File file = base.getDriver().getScreenshotAs(OutputType.FILE);
 		
 		byte[] encoded = null;
@@ -69,7 +69,7 @@ public class TestListener implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
-		BaseTest base = new BaseTest();
+		MobileBaseTest base = new MobileBaseTest();
 		ExtentReport.startTest(result.getName(), result.getMethod().getDescription())
 		.assignCategory(base.getPlatform() + "_" + base.getDeviceName())
 		.assignAuthor("Omprakash");		

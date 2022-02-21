@@ -1,4 +1,4 @@
-package com.qa.pages;
+package com.qa.pages.mobile.swaglabs;
 
 import com.qa.MenuPage;
 import com.qa.utils.TestUtils;
