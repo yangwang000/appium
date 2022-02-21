@@ -57,11 +57,13 @@ desiredCapabilities.setCapability("avdLaunchTimeout", 120000);
 ```
 
 ## Android Locator Strategies
-|Locator Strategy|Description|Example|Code|
-|----------------|-----------|---------|--------|
-|Accessibility ID|content-desc attribute|<unique_element_name>|driver.findElementByAccessibilityId("<unique_element_name>");|
-|ID|resource-id attribute|<app_package>/<resource-id>|driver.findElementById("<resource-id>");|
-|Class Name|Uiautomator2 class name|android.widget.TextView|driver.findElementByClassName("android.widget.TextView");|
-|XPath|XML path expression|//<UiAutomator2 Class Name>[@<attribute name>="attribute value"]/<axes>::<expression>|driver.findElementByXPath();|
-|Image|matches with base64 encode image file|<base64_encode_string>|driver.findElementByImage("<base64_encode_string>");|
-|UiAutomator2(UiSelector)|UI Automator API, use UiSelector class|"new UiSelector().text(\"Animation\")"|((FindsByAndroidUIAutomator)driver).findElementByAndroidUIAutomator("new UiSelector().text(\"Animation\")");|
+|Locator Strategy        |Description                           |Example                                                                              |Code                                                                                                        |
+|------------------------|--------------------------------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+|Accessibility ID        |content-desc attribute                |<unique_element_name>                                                                |driver.findElementByAccessibilityId("<unique_element_name>");                                               |
+|ID                      |resource-id attribute                 |<app_package>/<resource-id>                                                          |driver.findElementById("<resource-id>");                                                                    |
+|Class Name              |Uiautomator2 class name               |android.widget.TextView                                                              |driver.findElementByClassName("android.widget.TextView");                                                   |
+|Name                    |text  attribute                       |<static>_text_                                                                       |driver.findElementByName("<static_text>")                                                                   |
+|XPath                   |XML path expression                   |//<UiAutomator2 Class Name>[@<attribute name>="attribute value"]/<axes>::<expression>|driver.findElementByXPath();                                                                                |
+|Image                   |matches with base64 encode image file |<base64_encode_string>                                                               |driver.findElementByImage("<base64_encode_string>");                                                        |
+|UiAutomator2(UiSelector)|UI Automator API, use UiSelector class|"new UiSelector().text(\"Animation\")"                                               |((FindsByAndroidUIAutomator)driver).findElementByAndroidUIAutomator("new UiSelector().text(\"Animation\")");|
+
