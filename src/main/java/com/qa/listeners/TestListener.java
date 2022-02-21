@@ -78,13 +78,11 @@ public class TestListener implements ITestListener {
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		ExtentReport.getTest().log(Status.PASS, "Test Passed");
-		
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		ExtentReport.getTest().log(Status.SKIP, "Test Skipped");
-		
 	}
 
 	@Override

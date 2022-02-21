@@ -1,15 +1,22 @@
-Technologies/Tools used in building the framework
-============================================
-- Appium - Mobile Automation library
-- Maven - Build automation tool
-- Java - Programming language
-- TestNG - Test Management library
-- Log4J - Logging framework
-- Extent Reports - Reporting framework
-- JSON/Excel - Test Data
-- XML - Static text
-- GitHub - Version control
-- Jenkins - CI/CD
+## TDD Framework
+```
+BaseTest.java
+    initialize driver
+    initialize config properties [global variables]
+    exit driver
+  We initialize driver in @BeforeTest method, so all the test classes can use the driver. We initialize the driver only once assuming all the test cases will be executed on the same device.And we intall the App in the @BeforeTest.
+  Selenium initialize driver in @BeforeMethod method.
+  
+BasePage.java
+    explicit wait
+    pagefactory initialization
+    driver commands [click sendkey etc.]  
+    
+TestNG Listener
+    can be called in class by annotation or in testng.xml, when called in testng.xml listener can be used by all test classes
+```
+Avoid using class level objects for parallel execution.
+
 
 Framework implements below best practices
 =========================================
