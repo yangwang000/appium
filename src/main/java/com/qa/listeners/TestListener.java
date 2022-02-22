@@ -72,7 +72,7 @@ public class TestListener implements ITestListener {
 		MobileBaseTest base = new MobileBaseTest();
 		ExtentReport.startTest(result.getName(), result.getMethod().getDescription())
 		.assignCategory(base.getPlatform() + "_" + base.getDeviceName())
-		.assignAuthor("Omprakash");		
+		.assignAuthor("Yang");
 	}
 
 	@Override

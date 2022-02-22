@@ -17,29 +17,6 @@ TestNG Listener
 ```
 Avoid using class level objects for parallel execution.
 
-
-Framework implements below best practices
-=========================================
-- Code reusability
-- Code readability
-- Scalable automation (demonstrated using multiple test classes)
-- Uses explicit waits
-- Abstraction layer for UI commands like click, sendkeys, etc.
-- Parameterization using TestNG XML and config.properties
-- Alternate Design approach [Without using inheritance]
-- Exception handling [using Try/Catch and TestNG Listener]
-- Abstraction layer for test data
-- Abstraction layer for static text
-- Supports iOS and Android
-- Demonstrates how to define UI elements that are common across pages (e.g. menu bar, side bar, etc.)
-- How to recover from test failure/ how to write fail safe test cases
-- Scrolling for both Android and iOS (using touchaction, uiScrollable, mobile:scroll)
-- Demonstrates how to effectively capture Screenshots/Videos
-- Supports parallel execution on multiple real Android and iOS devices
-- Integrated with Log4J2 Logging framework (supports basic as well as parallel logging)
-- Integrated with Extent Reporting framework (supports parallel, screenshots, logging test steps)
-
-
 ## Misc
 **Desired Capabilities**: Keys and values encoded in a JSON object, sent by Appium clients to server. Carries information like device info and app info.
 
@@ -49,6 +26,24 @@ adb shell dumpsys window | grep -E mCurrentFocus
 adb shell "dumpsys activity activities | grep mResumedActivity" (Android 10 or 11)
 download APK info 
 ```
+
+### Deep Links
+```
+adb shell am start -W -a android.intent.action.VIEW -d "swaglabs://checkout-overview/1,2"
+```
+Appium Android deep link command:
+```
+driver.execute(
+    'mobile:deepLink',
+    {
+        url: "theapp://login/darlene/testing123",
+        package: "io.cloudgrey.the_app"
+    }
+);
+```
+
+Sauce lab sample App deep linking demo:https://github.com/saucelabs/sample-app-mobile#use-with-android
+
 
 **Android launch emulator automatically:**
 ```
@@ -61,6 +56,33 @@ desiredCapabilities.setCapability("avdLaunchTimeout", 120000);
 1. instruments -s devices
 2. xcrun simctl list
 3. From Xcode: Window -> Devices and Simulators -> Simulators. The Identifier value is the UDID.
+```
+
+### WebView Automation
+To use Appium Inspector with WebView, do set the debug flag for WebView.https://appium.io/docs/en/writing-running-appium/web/hybrid/
+
+**Inspect WebView elements using the Chrome Remote Debuger:**
+```
+open desktop chrome
+chrome://inspect/#devices
+(for real devices, turn off Play Protect setting in playstore)
+```
+
+**To switch driver between WebView and native-app:**
+```
+//driver.context("WEBVIEW");
+driver.context(contextHandles.toArray()[1].toString());
+System.out.println(driver.findElement(By.cssSelector("body >h1")).getText());
+System.out.println(driver.findElement(By.xpath("//*[@id=\"i_am_a_textbox\"]")).getText());
+
+driver.context("NATIVE_APP");
+```
+
+Use **chromedriverExecutable** capability to set chromedriver path.
+
+Automatic download of compatible ChromeDriver:
+```
+appium --allow-insecure chromedriver_autodownload
 ```
 
 ## Android Locator Strategies
